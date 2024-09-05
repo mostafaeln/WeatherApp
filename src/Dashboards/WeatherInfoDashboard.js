@@ -148,7 +148,7 @@ const WeatherInfoDashboard = ({ city  ,NightTime}) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 2, y: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className={`w-1/2 min-h-full mx-auto p-6 rounded-lg shadow-lg ${
+      className={`w-3/4 sm:w-1/2 min-h-full mx-auto p-6 rounded-lg shadow-lg ${
         NightTime ? "bg-blue-700" : "bg-blue-900"
       } mt-10 mb-10`}
     >
