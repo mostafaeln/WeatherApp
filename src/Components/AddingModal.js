@@ -47,12 +47,12 @@ export default function AddingModal({ isOpen, OnClose, AddCity, City = [] }) {
           <div className="flex-grow px-4 pb-4">
             {City.length > 0 ? (
               <div className="flex flex-col mt-5 space-y-4">
-                {City.map((item) => (
+                {City.map((item ,index) => (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.25 }}
-                    key={item.id}
+                    key={index}
                     className="flex flex-col justify-between items-start border-b pb-2"
                   >
                     <div className="flex justify-between items-center w-full">

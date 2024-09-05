@@ -6,15 +6,22 @@ import WeatherInfoDashboard from "../Dashboards/WeatherInfoDashboard";
 
 import WeatherLandingDisplay from "../Dashboards/WeatherLandingDisplay";
 
-export default function HomePage({ OnOpen, addedCities }) {
+export default function HomePage({ OnOpen, addedCities ,locationadjuster ,firstadd}) {
   const [weather, setWeather] = useState(null);
   const [weatherIcon, setWeatherIcon] = useState(null);
   const [location, setLocation] = useState(null);
+  const [currentcity , setCurrentCity] = useState(null);
   const [isNightTime, setIsNightTime] = useState(false);
   const [isInfoShown, setIsInfoShown] = useState(false);
 
   function locationHandler(LocationName) {
+    //console.log("current city " + currentcity);
+    locationadjuster(LocationName ,currentcity);
+    setCurrentCity(LocationName);
     setLocation(LocationName);
+
+  
+    
   }
 
   useEffect(() => {
@@ -53,6 +60,8 @@ export default function HomePage({ OnOpen, addedCities }) {
           const { latitude, longitude } = position.coords;
           const nearestCity = findNearestCity(latitude, longitude);
           setLocation(nearestCity);
+          setCurrentCity(nearestCity);
+          firstadd(nearestCity);
           fetchWeather(nearestCity);
         },
         (error) => {
@@ -64,7 +73,7 @@ export default function HomePage({ OnOpen, addedCities }) {
     } else {
       console.error('Geolocation is not supported by this browser.');
     }
-  }, [location]);
+  }, [location ,firstadd]);
 
 
   useEffect(() => {

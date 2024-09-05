@@ -73,11 +73,11 @@ export default function WeatherLandingDisplay({isNightTime ,isInfoShown ,weather
           </div>
           <motion.div className="mt-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 , delay : 1 }}>
             {addedCities.length > 0 ? (
-              <div className="flex flex-col px-5">
-                {addedCities.map((item) => (
-                  <motion.div key={item.id} className="flex flex-row items-center mb-4" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+              <div  className="flex flex-col px-5">
+                {addedCities.map((item ,index) => (
+                  <motion.div key={index} className="flex flex-row items-center mb-4" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
                     <p className="font-semibold flex-1">{item.name}</p>
-                    <button className="px-2 text-white hover:bg-gray-800 rounded" onClick={() => locationHandler(item.name)}>
+                    <button className="px-2 text-white hover:bg-gray-800 rounded" onClick={() => locationHandler(item.name )}>
                     <AnimatedText text={"Choose" } type="easeIn" delay={0.4}/>
                     </button>
                   </motion.div>
