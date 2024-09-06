@@ -17,7 +17,7 @@ function App() {
     SetModalOpened(false);
   }
 function firstadd(location) {
-  console.log("First add");
+  //console.log("First add");
   if(check<1) {
   const updatedAllCities = allcities.map((city) =>
     city.name === location ? { ...city, added: true } : city
@@ -76,7 +76,7 @@ check++;
       }
       
     });
-    console.log(wantedCities)
+    //console.log(wantedCities)
 
   }
   return (

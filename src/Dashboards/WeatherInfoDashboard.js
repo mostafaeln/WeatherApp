@@ -21,7 +21,7 @@ const WeatherInfoDashboard = ({ city  ,NightTime}) => {
 
     fetchData();
   }, [city]);
-  console.log(weatherStats);
+  //console.log(weatherStats);
   useEffect(() => {
     if (weatherStats) {
       const svg = d3.select('#d3-chart')

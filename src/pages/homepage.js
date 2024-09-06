@@ -39,11 +39,19 @@ export default function HomePage({ OnOpen, addedCities ,locationadjuster ,firsta
 
           sunrise.setHours(parseInt(data.data.weather[0].astronomy[0].sunrise.split(':')[0]) + (data.data.weather[0].astronomy[0].sunrise.includes('PM') ? 12 : 0));
           sunrise.setMinutes(parseInt(data.data.weather[0].astronomy[0].sunrise.split(':')[1]));
-
+ 
           sunset.setHours(parseInt(data.data.weather[0].astronomy[0].sunset.split(':')[0]) + (data.data.weather[0].astronomy[0].sunset.includes('PM') ? 12 : 0));
           sunset.setMinutes(parseInt(data.data.weather[0].astronomy[0].sunset.split(':')[1]));
+          sunrise.setHours(sunrise.getHours() +1);
+          
+          sunset.setHours(sunset.getHours() +1);
+//           console.log("Raw Sunrise Time:", data.data.weather[0].astronomy[0].sunrise);
+// console.log("Raw Sunset Time:", data.data.weather[0].astronomy[0].sunset);
+          console.log("real sunset : "  , sunset);
+          console.log(sunrise);
+          console.log(now)
+          setIsNightTime(now >= sunset || now <= sunrise);
 
-          setIsNightTime(now < sunrise || now > sunset);
           const iconUrl = data.data.current_condition[0].weatherIconUrl[0].value;
           setWeatherIcon(iconUrl);
         } else {
