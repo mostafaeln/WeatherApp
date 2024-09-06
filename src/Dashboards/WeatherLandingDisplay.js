@@ -57,7 +57,7 @@ export default function WeatherLandingDisplay({isNightTime ,isInfoShown ,weather
               onClick={OnOpen}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              disabled={weather===null}
+              disabled={location==null}
             >
              <AnimatedText text={"Add More Cities"} type="easeIn" delay={1.2}/> 
             </motion.button>
